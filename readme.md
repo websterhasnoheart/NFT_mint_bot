@@ -46,22 +46,22 @@ The program will display selected settings and corresponding infos
 ## 4. Configuration
 Settings (settings.json):
 
-- CHAIN_NAME - set to one of available chains:
+- `CHAIN_NAME` - set to one of available chains:
 Ethereum, Ropsten, Rinkeby, Kovan, Polygon, Mumbai
 If you need to add other chain, you can modify CHAINS dict in settings.py
-- CONTRACT_ADDRESS - the address of smart contract deployed on selected chain, with verified source code (available on corresponding blockchain explorer api)
-- MINT_FUNCTION_NAME - the exact name of the minting function of smart contract to execute
-- NUMBER_OF_MINTS - the number of times for minting function to be executed.
+- `CONTRACT_ADDRESS` - the address of smart contract deployed on selected chain, with verified source code (available on corresponding blockchain explorer api)
+- `MINT_FUNCTION_NAME` - the exact name of the minting function of smart contract to execute
+- `NUMBER_OF_MINTS` - the number of times for minting function to be executed.
 In Multi mode this is also the number of accounts derived, each account will execute mint function once
-- MINT_PRICE - the minimum price of single mint in Ether (or MATIC if we are on Polygon/Mumbai blockchain), not including transaction fee
-- EXTRA_MIXING_LAYERS - only for -multi option - creates additional sets of addresses to mix coins and hide slightly the origin of funds
-- SEND_BACK - only for -multi option - after minting, sends the remaining funds back to the master account
-- LOGGING - enables printing transactions and logging in logs/ directory
-- MINT_DATE - There is a count down function implemented, input the exact time that the NFT to be minted, the time needs to be converted to your own timezone.
+- `MINT_PRICE` - the minimum price of single mint in Ether (or MATIC if we are on Polygon/Mumbai blockchain), not including transaction fee
+- `EXTRA_MIXING_LAYERS` - only for -multi option - creates additional sets of addresses to mix coins and hide slightly the origin of funds
+- `SEND_BACK` - only for -multi option - after minting, sends the remaining funds back to the master account
+- `LOGGING` - enables printing transactions and logging in logs/ directory
+- `MINT_DATE` - There is a count down function implemented, input the exact time that the NFT to be minted, the time needs to be converted to your own timezone.
 
 Modes (command-line arguments):
 
-- -h - help page
+- `-h` - help page
 -newacc - New account mode - generates a new account, displays keys and quits the program
-- -single - Single mode - initializes master_account from PRIVATE_KEY specified in secrets.json and calls specified mint function from it multiple (NUMBER_OF_MINTS) times.
-- -multi - Multi mode - initializes master_account like in Single mode, by hashing the private key derives another NUMBER_OF_MINTS accounts, sends funds to them and mints once from every derived account
+- `-singl`e - Single mode - initializes master_account from PRIVATE_KEY specified in secrets.json and calls specified mint function from it multiple (NUMBER_OF_MINTS) times.
+- `-multi` - Multi mode - initializes master_account like in Single mode, by hashing the private key derives another NUMBER_OF_MINTS accounts, sends funds to them and mints once from every derived account
